@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "rest-framework"
-    "accounts"
+    "rest_framework",
+    "accounts",
     "postwall"
 ]
 
