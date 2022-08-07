@@ -1,6 +1,6 @@
 from django.db import models
 from django.apps import apps
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager, UserManager
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, UserManager
 from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.hashers import make_password
@@ -9,7 +9,7 @@ from django.utils import timezone
 from accounts.helpers.models import TrackingModel
 
 
-class CustomUserManager(BaseUserManager):
+class CustomUserManager(UserManager):
 
     def _create_user(self, username, email, password, **extra_fields):
         """
