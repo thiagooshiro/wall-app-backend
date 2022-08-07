@@ -6,7 +6,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.hashers import make_password
 from django.utils import timezone
 
-from wallapp.accounts.helpers.models import TrackingModel
+from accounts.helpers.models import TrackingModel
 
 
 class CustomUserManager(BaseUserManager):

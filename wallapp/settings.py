@@ -38,11 +38,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
-    "accounts",
-    "postwall"
+    "accounts"
 ]
 
-AUTH_USER_MODEL="accounts.User"
+# AUTH_USER_MODEL="accounts.User"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
