@@ -1,12 +1,9 @@
-from django.shortcuts import render
-from rest_framework.generics import GenericAPIView, mixins
-from rest_framework import response, status, viewsets
+from rest_framework import viewsets
 from accounts.models import User
 
 from accounts.serializers import UserSerializer
 
 # Create your views here.
-
 class UserViewSet(
     viewsets.GenericViewSet, 
     mixins.CreateModelMixin, 
