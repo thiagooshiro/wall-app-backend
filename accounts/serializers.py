@@ -13,4 +13,11 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = [ 'username', 'email', 'password']
 
-    
+
+class LoginSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(max_length=20, min_length=8, write_only=True)
+
+    class Meta:
+        model = User
+        fields = ['email', 'password', 'token']
+        read_only_fields = ['tokens']

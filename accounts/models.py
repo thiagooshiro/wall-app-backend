@@ -7,6 +7,9 @@ from django.contrib.auth.hashers import make_password
 from django.utils import timezone
 
 from accounts.helpers.models import TrackingModel
+import jwt
+from django.conf import settings
+from datetime import datetime, timedelta
 
 
 class CustomUserManager(UserManager):
@@ -89,4 +92,9 @@ class User(TrackingModel, AbstractBaseUser, PermissionsMixin):
 
     @property
     def token(self):
-        return ''
+        token = jwt.encode(
+            {'username': self.username, 
+            'email': self.email,
+            'exp': datetime.utcnow() + timedelta(hours=24)},
+            settings.SECRET_KEY, algorithm='HS256')
+        return token
