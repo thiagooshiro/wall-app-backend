@@ -1,7 +1,8 @@
 from rest_framework.generics import GenericAPIView, mixins
 from rest_framework import viewsets
+from accounts.jwtauth import JWTAuthentication
 from accounts.models import User
-from rest_framework import status, response
+from rest_framework import status, response, permissions
 from django.contrib.auth import authenticate
 
 from accounts.serializers import LoginSerializer, UserSerializer
@@ -33,3 +34,12 @@ class LoginViewSet(GenericAPIView):
             {'message': 'Invalid credentials, please try again'},
             status=status.HTTP_401_UNAUTHORIZED)
 
+
+class AuthUserViewSet(GenericAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = (JWTAuthentication,)
+
+    def get(self, request):
+        user = request.user
+        serializer = UserSerializer(user)
+        return response.Response({'user': serializer.data})

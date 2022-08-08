@@ -1,4 +1,4 @@
-from accounts.views import LoginViewSet, UserViewSet
+from accounts.views import AuthUserViewSet, LoginViewSet, UserViewSet
 from django.urls import path
 
 from rest_framework import routers
@@ -8,7 +8,8 @@ router.register(r'account', UserViewSet)
 
 
 urlpatterns = [ 
-  path('login', LoginViewSet.as_view(), name='login')
+    path('login', LoginViewSet.as_view(), name='login'),
+    path('auth/', AuthUserViewSet.as_view(), name='auth'),
 ]
 
 urlpatterns += router.urls
