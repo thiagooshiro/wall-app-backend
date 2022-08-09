@@ -90,6 +90,9 @@ class User(TrackingModel, AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
 
+    def __str__(self):
+        return self.username
+
     @property
     def token(self):
         token = jwt.encode(
@@ -98,3 +101,4 @@ class User(TrackingModel, AbstractBaseUser, PermissionsMixin):
             'exp': datetime.utcnow() + timedelta(hours=24)},
             settings.SECRET_KEY, algorithm='HS256')
         return token
+

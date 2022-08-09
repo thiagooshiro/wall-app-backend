@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "accounts",
+    "postwall",
 ]
 
 AUTH_USER_MODEL="accounts.User"

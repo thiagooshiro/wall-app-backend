@@ -7,7 +7,6 @@ from django.contrib.auth import authenticate
 
 from accounts.serializers import LoginSerializer, UserSerializer
 
-# Create your views here.
 
 class UserViewSet(
     viewsets.GenericViewSet, 
