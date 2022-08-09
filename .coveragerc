@@ -4,4 +4,5 @@ omit=
     venv
     */migrations/*
     */tests/*
+    */tests.py
     */__init__.py
