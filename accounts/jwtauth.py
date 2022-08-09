@@ -27,7 +27,7 @@ class JWTAuthentication(BaseAuthentication):
             raise exceptions.AuthenticationFailed(
                 'Token has expired, please login again')
 
-        except jwt.DecodeError as expired:
+        except jwt.DecodeError as invalid:
             raise exceptions.AuthenticationFailed(
                 'Invalid Token')        
 

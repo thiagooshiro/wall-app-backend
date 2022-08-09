@@ -1,0 +1,7 @@
+[run]
+source=accounts/, postwall/,
+omit=
+    venv
+    */migrations/*
+    */tests/*
+    */__init__.py
