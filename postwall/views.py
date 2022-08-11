@@ -1,4 +1,4 @@
-from rest_framework.generics import mixins
+from rest_framework.generics import mixins, UpdateAPIView, DestroyAPIView
 from rest_framework import viewsets
 from rest_framework import permissions
 
@@ -11,35 +11,31 @@ class PostContentViewSet(
     viewsets.GenericViewSet,
     mixins.CreateModelMixin,
 ):
-    serializer_class=PostWallSerializer
+    serializer_class = PostWallSerializer
     permission_classes = (permissions.IsAuthenticated,)
     authentication_classes = (JWTAuthentication,)
-    queryset=PostWall.objects.all()
+    queryset = PostWall.objects.all()
 
     def perform_create(self, serializer):
         return serializer.save(owner=self.request.user)
 
 
 class RetrievePostWallViewSet(
-    viewsets.GenericViewSet,
-    mixins.ListModelMixin,
-    mixins.RetrieveModelMixin):
+        viewsets.GenericViewSet,
+        mixins.ListModelMixin,
+        mixins.RetrieveModelMixin):
 
-    serializer_class=PostWallSerializer
-    queryset=PostWall.objects.all()
-    
+    serializer_class = PostWallSerializer
+    queryset = PostWall.objects.all()
+
 
 class PostWallDetailsViewSet(
-    viewsets.GenericViewSet,
-    mixins.UpdateModelMixin,
-    mixins.DestroyModelMixin,
+    UpdateAPIView, DestroyAPIView,
 ):
-    # de onde a mensagem "not found"
-    serializer_class=PostWallSerializer
-    permission_classes=(permissions.IsAuthenticated,)
-    authentication_classes=(JWTAuthentication,)
-    queryset=PostWall.objects.all()
-    
+    serializer_class = PostWallSerializer
+    permission_classes = (permissions.IsAuthenticated,)
+    authentication_classes = (JWTAuthentication,)
+    lookup_field = 'id'
+
     def get_queryset(self):
         return PostWall.objects.filter(owner=self.request.user)
-    
