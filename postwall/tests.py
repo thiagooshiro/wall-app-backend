@@ -5,9 +5,7 @@ from django.urls import reverse
 
 class PostWallTests(APITestCase):
 
-    def authenticate(self):
-        user = {'username': 'novato', 'password': 'novato123',
-                'email': 'novo@email.com'}
+    def authenticate(self, user):
         self.client.post(reverse('user-list'), user)
         response = self.client.post(reverse('login'), user)
         self.client.credentials(HTTP_AUTHORIZATION=response.data['token'])
@@ -18,7 +16,9 @@ class PostWallTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_should_create_post_with_auth(self):
-        self.authenticate()
+        user = {'username': 'novato', 'password': 'novato123',
+                'email': 'novo@email.com'}
+        self.authenticate(user)
         data = {'title': 'Today', 'content': 'Today is a fine day'}
         response = self.client.post(reverse('create-post-list'), data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
