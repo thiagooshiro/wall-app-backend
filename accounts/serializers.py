@@ -4,7 +4,8 @@ from accounts.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(max_length=20, min_length=8, write_only=True)
+    password = serializers.CharField(
+        max_length=20, min_length=8, write_only=True)
 
     def create(self, validated_data):
         return User.objects.create_user(**validated_data)
@@ -15,7 +16,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class LoginSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(max_length=20, min_length=8, write_only=True)
+    password = serializers.CharField(
+        max_length=20, min_length=8, write_only=True)
 
     class Meta:
         model = User

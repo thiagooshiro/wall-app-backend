@@ -72,7 +72,8 @@ class User(TrackingModel, AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(
         _("staff status"),
         default=False,
-        help_text=_("Designates whether the user can log into this admin site."),
+        help_text=_(
+            "Designates whether the user can log into this admin site."),
     )
     is_active = models.BooleanField(
         _("active"),
@@ -96,9 +97,8 @@ class User(TrackingModel, AbstractBaseUser, PermissionsMixin):
     @property
     def token(self):
         token = jwt.encode(
-            {'username': self.username, 
-            'email': self.email,
-            'exp': datetime.utcnow() + timedelta(hours=24)},
+            {'username': self.username,
+                'email': self.email,
+                'exp': datetime.utcnow() + timedelta(hours=24)},
             settings.SECRET_KEY, algorithm='HS256')
         return token
-

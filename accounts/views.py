@@ -9,12 +9,13 @@ from accounts.serializers import LoginSerializer, UserSerializer
 
 
 class UserViewSet(
-    viewsets.GenericViewSet, 
-    mixins.CreateModelMixin, 
-    mixins.ListModelMixin, 
-    mixins.RetrieveModelMixin):
+        viewsets.GenericViewSet,
+        mixins.CreateModelMixin,
+        mixins.ListModelMixin,
+        mixins.RetrieveModelMixin):
     serializer_class = UserSerializer
     queryset = User.objects.all()
+
 
 class LoginViewSet(GenericAPIView):
     serializer_class = LoginSerializer
@@ -22,7 +23,7 @@ class LoginViewSet(GenericAPIView):
     def post(self, request):
         email = request.data.get('email', None)
         password = request.data.get('password', None)
-        
+
         user = authenticate(username=email, password=password)
 
         if user:

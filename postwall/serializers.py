@@ -9,4 +9,4 @@ class PostWallSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PostWall
-        fields = ['title', 'content', 'owner']
+        fields = ['id', 'title', 'content', 'owner']
