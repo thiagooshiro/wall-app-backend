@@ -3,7 +3,6 @@ from rest_framework import status
 from django.urls import reverse
 
 from accounts.models import User
-from accounts.jwtauth import JWTAuthentication
 
 
 class UserModelTests(APITestCase):

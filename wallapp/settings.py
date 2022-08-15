@@ -131,11 +131,11 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Email Settings
-EMAIL_HOST='smtp.sendgrid.net'
+EMAIL_HOST = 'smtp.sendgrid.net'
 SENDGRID_SANDBOX_MODE_IN_DEBUG = False
-EMAIL_HOST_USER=  os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_USER_PASSWORD = os.getenv('EMAIL_HOST_USER_PASSWORD')
-EMAIL_PORT=587
+EMAIL_PORT = 587
 EMAIL_USE_TSL = True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')

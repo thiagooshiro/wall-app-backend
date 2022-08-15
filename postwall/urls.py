@@ -9,8 +9,6 @@ router.register(r'feed', RetrievePostWallViewSet, basename="feed")
 router.register(r'', PostContentViewSet, basename="create-post")
 
 
-
-
 urlpatterns = [
     path('details/<int:id>', PostWallDetailsViewSet.as_view(), name="details"),
 ]
