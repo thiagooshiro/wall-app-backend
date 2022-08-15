@@ -1,0 +1,7 @@
+scoverage==6.4.3
+Django==4.1
+djangorestframework==3.13.1
+flake8==5.0.4
+PyJWT==2.4.0
+python-dotenv==0.20.0
+sendgrid==6.9.7
