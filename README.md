@@ -73,7 +73,6 @@ The HTML file that this report generates is really useful.
 
 It is not a finished project yet. I learned a lot while making it but its not optmized. I intend to change it a little more and make it better.
 I wrote this readme in the intent that one can use this project as a basis to understand Django and Django Rest Framework and how powerful they can be.
-There are a lot of good references in the web, and the documentation for Django and Django Rest Framework it is really good and I lot of what I learned
-from theses sources to be able to do this project.
+There are a lot of good references in the web, and the documentation for Django and Django Rest Framework it is really good and it was essential for me to be able to do this project.
 
  
