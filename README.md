@@ -38,7 +38,7 @@ pip install -r requirements.txt
 
 Then you should be good!
 
-# Structure:
+# Project Structure:
 
 accounts: App that manages user interations,
 there is a custom User and a custom UserManager class implemented
