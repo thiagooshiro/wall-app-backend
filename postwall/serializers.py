@@ -5,6 +5,7 @@ from postwall.models import PostWall
 
 class PostWallSerializer(serializers.ModelSerializer):
     owner = serializers.CharField(read_only=True)
+    title = serializers.CharField(required=False, default="")
 
     class Meta:
         model = PostWall

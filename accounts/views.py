@@ -3,10 +3,10 @@ from rest_framework import viewsets
 from rest_framework import status, response, permissions
 from django.contrib.auth import authenticate
 
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail, Email, To, Content
-
 import os
+
+from sendgrid.helpers.mail import Mail, Email, To, Content
+from sendgrid import SendGridAPIClient
 
 from accounts.jwtauth import JWTAuthentication
 from accounts.models import User
