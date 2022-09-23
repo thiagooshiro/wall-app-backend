@@ -2,7 +2,8 @@
 
 wall-app-backend is a backend REST API utilizing Django and Django Rest Framework.
 It's a socialmedia app where users can make posts in a wall.
-The Front-End of this app its comming up soon =)
+
+Here is the [link](https://github.com/thiagooshiro/wallapp-frontend) for the FrontEnd part of the application
 
 Techs implemented: Django, Django Rest Framework, SendGrid, PyJWTs, python-dotenv
 

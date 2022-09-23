@@ -29,8 +29,6 @@ class UserViewSet(
             mail = Mail(from_email, to_email, subject, content)
             response = sg.client.mail.send.post(request_body=mail.get())
             print(response.status_code)
-            print(response.body)
-            print(response.headers)
         except Exception as e:
             print(e.to_dict)
 
@@ -39,7 +37,7 @@ class UserViewSet(
         serializer.is_valid(raise_exception=True)
         username = serializer.validated_data['username']
         email = serializer.validated_data['email']
-        # self.register_send_email(username, email)
+        self.register_send_email(username, email)
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         return response.Response(
